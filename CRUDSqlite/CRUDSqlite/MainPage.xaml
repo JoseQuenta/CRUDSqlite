@@ -10,23 +10,65 @@
                VerticalOptions="CenterAndExpand" />
         
         <Entry x:Name="txtNombre"
-               Placeholder="Nombre"/>
+               Placeholder="Nombre"
+               Keyboard="Text"
+               ReturnType="Next"/>
         
         <Entry x:Name="txtApellidoPaterno"
-               Placeholder="Apellido Paterno"/>
+               Placeholder="Apellido Paterno"
+               Keyboard="Text"
+               ReturnType="Next"/>
 
         <Entry x:Name="txtApellidoMaterno"
-               Placeholder="Apellido Materno"/>
+               Placeholder="Apellido Materno"
+               Keyboard="Text"
+               ReturnType="Next"/>
 
         <Entry x:Name="txtEdad"
-               Placeholder="Edad"/>
+               Placeholder="Edad"
+               Keyboard="Numeric"
+               ReturnType="Next"/>
 
         <Entry x:Name="txtEmail"
-               Placeholder="Email"/>
+               Placeholder="Email"
+               Keyboard="Email"
+               ReturnType="Next"/>
 
         <Button x:Name="btnGuardar"
                 Text="Guardar"
                 Clicked="btnGuardar_Clicked"/>
+
+        <ListView x:Name="lstAlumnos">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding IdAlumno}" Grid.Row="0" Grid.Column="0" TextColor="Blue"/>
+                            <Label Text="{Binding Nombre}" Grid.Row="0" Grid.Column="1" TextColor="Gray"/>
+                            <Label Text="{Binding ApellidoPaterno}" Grid.Row="0" Grid.Column="2" TextColor="Gray"/>
+                            <Label Text="{Binding ApellidoMaterno}" Grid.Row="0" Grid.Column="3" TextColor="Gray"/>
+
+                            <Label Text="{Binding Edad}" Grid.Row="0" Grid.Column="4" TextColor="Orange"/>
+                            <Label Text="{Binding Email}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" TextColor="Green"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

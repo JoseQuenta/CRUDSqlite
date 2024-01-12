@@ -1,5 +1,6 @@
 ﻿using CRUDSqlite.Models;
 using SQLite;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CRUDSqlite.Data
@@ -29,6 +30,27 @@ namespace CRUDSqlite.Data
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Recuperar todos los alumnos de la base de datos de manera asincrona para que no se bloquee la aplicacion mientras se recuperan los registros de la base de datos
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<Alumno>> GetAlumnosAsync()
+        {
+            return db.Table<Alumno>().ToListAsync();
+
+        }
+
+        /// <summary>
+        /// Recuperar un alumno por su id de manera asincrona para que no se bloquee la aplicacion mientras se recuperan los registros de la base de datos
+        /// </summary>
+        /// <param name="idAlumno"> Id del alumno que se requiere</param>
+        /// <returns></returns>
+        public Task<Alumno> GetAlumnoByIdAsync(int idAlumno)
+        {
+            return db.Table<Alumno>().Where(a => a.IdAlumno == idAlumno).FirstOrDefaultAsync();
+
         }
     }
 }
