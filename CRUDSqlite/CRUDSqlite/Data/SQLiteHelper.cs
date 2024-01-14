@@ -22,14 +22,19 @@ namespace CRUDSqlite.Data
         //se crea el metodo GetAlumnosAsync que retorna una lista de tipo Alumno, este metodo se encarga de obtener todos los registros de la tabla Alumno de la base de datos
         public Task <int> SaveAlumnoAsync(Alumno alum)
         {
-            if (alum.IdAlumno == 0) 
+            if (alum.IdAlumno != 0) 
             {
-                return db.InsertAsync(alum);
+                return db.UpdateAsync(alum);
             }
             else
             {
-                return null;
+                return db.InsertAsync(alum);
             }
+        }
+
+        public Task<int> DeleteAlumnoAsync(Alumno alum)
+        {
+            return db.DeleteAsync(alum);
         }
 
         /// <summary>

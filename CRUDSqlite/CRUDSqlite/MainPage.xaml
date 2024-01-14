@@ -8,7 +8,10 @@
                FontSize="Large"
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" />
-        
+
+        <Entry x:Name="txtIdAlumno"
+               IsVisible="false"/>
+
         <Entry x:Name="txtNombre"
                Placeholder="Nombre"
                Keyboard="Text"
@@ -34,11 +37,34 @@
                Keyboard="Email"
                ReturnType="Next"/>
 
-        <Button x:Name="btnGuardar"
+        <Button x:Name="BtnGuardar"
                 Text="Guardar"
-                Clicked="btnGuardar_Clicked"/>
+                Clicked="BtnGuardar_Clicked"/>
 
-        <ListView x:Name="lstAlumnos">
+        <Button x:Name="BtnActualizar"
+                Text="Actualizar"
+                Clicked="BtnActualizar_Clicked"
+                IsVisible="false"/>
+
+        <Button x:Name="BtnEliminar"
+                Text="Eliminar"
+                Clicked="BtnEliminar_Clicked"
+                IsVisible="false"/>
+
+        <Button x:Name="BtnExportar"
+                Text="Exportar"
+                Clicked="BtnExportar_Clicked"/>
+
+        <Button x:Name="BtnCompartir"
+                Text="Compartir"
+                Clicked="BtnCompartir_Clicked"/>
+
+        <Button x:Name="BtnGuardarExterno"
+                Text="Guardar Externo"
+                Clicked="BtnGuardarExterno_Clicked"/>
+
+
+        <ListView x:Name="LstAlumnos" ItemSelected="LstAlumnos_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
